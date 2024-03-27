@@ -46,9 +46,12 @@ public class ResultActivity extends AppCompatActivity {
         Double nilaiAkhir = getIntent().getDoubleExtra(EXTRA_NILAI_AKHIR, 0.0);
         String kelas = getIntent().getStringExtra(EXTRA_KELAS);
 
+        //Mengubah setiap karakter ke bentuk bintang bintang
+        String bintangBintang = NIM.replaceAll("[\\p{Digit}]", "*");
+
         //Menetapkan nilai setiap komponen TextView
         binding.tvNama.setText("Nama Mahasiswa : "+panggilan+" "+nama);
-        binding.tvNIM.setText("NIM : "+NIM);
+        binding.tvNIM.setText("NIM : "+bintangBintang);
         binding.tvJenisKelamin.setText("Jenis Kelamin : "+jenisKelamin);
         binding.tvMataKuliah.setText("Mata Kuliah : "+mataKuliah);
         binding.tvNilaiAkhir.setText("Nilai Akhir : "+nilaiAkhir);
