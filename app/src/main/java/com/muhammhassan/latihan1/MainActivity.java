@@ -2,7 +2,6 @@ package com.muhammhassan.latihan1;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,8 +10,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.muhammhassan.latihan1.databinding.ActivityMainBinding;
-
-import javax.xml.transform.Result;
 
 public class MainActivity extends AppCompatActivity {
     //deklarasi viewbinding
@@ -64,20 +61,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //mendapatkan nama panggilan berdasarkan radio button yang dipilih
-    String getPanggilan(){
-        if(binding.radioGroup.getCheckedRadioButtonId() == binding.rbLakiLaki.getId()){
+    String getPanggilan() {
+        if (binding.radioGroup.getCheckedRadioButtonId() == binding.rbLakiLaki.getId()) {
             return "Mas";
-        }else return "Mba";
+        } else return "Mba";
     }
+
     //mendapatkan nilai radio butotn yang dipilih
-    String getJenisKelamin(){
-        if(binding.radioGroup.getCheckedRadioButtonId() == binding.rbLakiLaki.getId()){
+    String getJenisKelamin() {
+        if (binding.radioGroup.getCheckedRadioButtonId() == binding.rbLakiLaki.getId()) {
             return "Laki Laki";
-        }else return "Perempuan";
+        } else return "Perempuan";
     }
 
     //menghitung nilai akhir
-    double getNilaiAkhir(double uts, double uas, double lainLain){
+    double getNilaiAkhir(double uts, double uas, double lainLain) {
         return (uts * 0.3) + (uas * 0.4) + (lainLain * 0.3);
     }
 }
