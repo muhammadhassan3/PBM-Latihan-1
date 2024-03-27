@@ -11,8 +11,10 @@ import androidx.core.view.WindowInsetsCompat;
 import com.muhammhassan.latihan1.databinding.ActivityResultBinding;
 
 public class ResultActivity extends AppCompatActivity {
+    //Deklarasi viewBinding
     private ActivityResultBinding binding;
 
+    //Deklarasikan key untuk alamat pengiriman data
     public static String EXTRA_NAMA = "ext_nama";
     public static String EXTRA_NIM = "ext_nim";
     public static String EXTRA_PANGGILAN = "ext_panggilan";
@@ -25,7 +27,9 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+        //inisiasi viewbinding
         binding = ActivityResultBinding.inflate(getLayoutInflater());
+        //menetapkan viewbinding untuk ditampilkan pada halaman ini
         setContentView(binding.getRoot());
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -33,6 +37,7 @@ public class ResultActivity extends AppCompatActivity {
             return insets;
         });
 
+        //Mendapatkan data yang dikirimkan
         String nama = getIntent().getStringExtra(EXTRA_NAMA);
         String NIM = getIntent().getStringExtra(EXTRA_NIM);
         String panggilan = getIntent().getStringExtra(EXTRA_PANGGILAN);
@@ -41,6 +46,7 @@ public class ResultActivity extends AppCompatActivity {
         Double nilaiAkhir = getIntent().getDoubleExtra(EXTRA_NILAI_AKHIR, 0.0);
         String kelas = getIntent().getStringExtra(EXTRA_KELAS);
 
+        //Menetapkan nilai setiap komponen TextView
         binding.tvNama.setText("Nama Mahasiswa : "+panggilan+" "+nama);
         binding.tvNIM.setText("NIM : "+NIM);
         binding.tvJenisKelamin.setText("Jenis Kelamin : "+jenisKelamin);
@@ -50,6 +56,7 @@ public class ResultActivity extends AppCompatActivity {
         binding.tvGrade.setText("Grade : "+getGrade(nilaiAkhir));
     }
 
+    //Menentukan grade berdasarkan parameter nilai Akhir
     String getGrade(double nilaiAkhir){
         String grade = "Grade Tidak valid";
         if(nilaiAkhir >80 && nilaiAkhir <= 100){
